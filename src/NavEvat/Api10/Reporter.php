@@ -45,6 +45,10 @@ class Reporter extends ReporterAbstract
 
     public function queryTaxCodeCatalog(string $taxpointDate)
     {
+        if (empty($taxpointDate)) {
+            throw new MissingMandatoryParameterException();
+        }
+
         $requestXml = new QueryTaxCodeCatalogRequestXml($this->config, $taxpointDate);
         $responseXml = $this->connector->post("/queryTaxCodeCatalog", $requestXml);
 
