@@ -57,7 +57,7 @@ class Connector implements ConnectorInterface {
         }
 
         $responseXml = $this->parseResponse($result);
-        print $responseXml->asXML();
+        //print $responseXml->asXML();
 
         $domXml = new \DOMDocument();
         $domXml->loadXML($responseXml->asXML());
